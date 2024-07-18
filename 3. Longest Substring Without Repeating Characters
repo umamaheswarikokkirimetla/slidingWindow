@@ -1,0 +1,19 @@
+class Solution:
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        n=len(s)
+        if n==0:
+            return 0
+        if n==1:
+            return 1
+        maxans=-1
+        for i in range(n):
+            hash={}
+            for j in range(i,n):
+                if s[j] in hash:
+                    maxans=max(maxans,j-i)
+                    break
+                hash[s[j]]=1
+        return maxans
+
+
+        
