@@ -1,0 +1,18 @@
+class Solution:
+    def maxScore(self, nums: List[int], k: int) -> int:
+        ls=0
+        n=len(nums)
+        maxi=0
+        rs=0
+        for i in range(k):
+            ls+=nums[i]
+        maxi=ls
+        ri=n-1
+        for i in range(k-1,-1,-1):
+            ls=ls-nums[i]
+            rs=rs+nums[ri]
+            ri-=1
+            maxi=max(maxi,ls+rs)
+        return maxi
+
+        
